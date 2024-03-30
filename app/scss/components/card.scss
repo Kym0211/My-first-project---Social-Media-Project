@@ -1,0 +1,130 @@
+@use '../util' as *;
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(30);
+
+    @include breakpoint('medium'){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint('large'){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card-bg);
+    color: var(--text-color1);
+    padding: rem(25);
+    border-radius: rem(5);
+    text-align: center;
+    transition: backgroound 150ms ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        background: var(--card-hover);
+    }
+
+    &--facebook{
+        border-top: rem(5) solid var(--Facebook);
+    }
+
+    &--twitter{
+        border-top: rem(5) solid var(--Twitter);
+    }
+
+    &--instagram{
+        padding-top: rem(30);
+        &::before{
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            height: rem(5);
+            width: 100%;
+            background: linear-gradient(225deg ,
+                var(--Instagram-end),
+                var(--Instagram-middle) 50.91%,
+                var(--Instagram-start) 100%
+            );
+        }
+    }
+
+    &--youtube{
+        border-top: rem(5) solid var(--Youtube);
+    }
+
+    &__platform{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: rem(20);
+        margin-top: rem(5);
+        margin-bottom: rem(28);
+    }
+
+    &__subtitle{
+        font-size: rem(13.9);
+        font-weight: 700;
+    }
+
+    &__icon{
+        margin-right: rem(8);
+    }
+
+    &__username{
+         font-size: rem(12);
+         font-weight: 700;
+    }
+
+    &__followers{
+        margin-bottom: rem(25);
+    }
+    &__count{
+        color: var(--text-color2);
+        font-weight: 700;
+        letter-spacing: rem(-2);
+        line-height: 1;
+        margin-bottom: rem(4);
+
+        &--big{
+            font-size: rem(56);
+        }
+        &--small{
+            font-size: rem(32);
+        }
+    }
+
+    &__label{
+        font-size: rem(12);
+        letter-spacing: rem(5);
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--text-color1);
+    }
+
+    &__change{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: rem(12);
+        font-weight: 700;
+
+        &--up{
+            color: var(--Limegreen);
+        }
+
+        &--down{
+            color: var(--Brightred);
+        }
+
+        img{
+            margin-right: rem(4);
+        }
+    }
+}
